@@ -4,6 +4,10 @@ public class Grade {
 	private String subject;
 	private int mark;
 	
+	public Grade(String subject) {
+		this.subject = subject;
+	}
+	
 	public Grade(String subject, int mark) {
 		this.subject = subject;
 		this.mark = mark;

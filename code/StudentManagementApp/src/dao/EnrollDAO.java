@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,11 +61,11 @@ public class EnrollDAO {
 		return toReturn;
 	}
 	
-	public StringBuilder getEnrollments(int student_id) {
+	public ArrayList<String> getEnrollments(int student_id) {
 		Connection conn = ConnectionFactory.getConnection();
 		PreparedStatement statement = null;
 		ResultSet rs = null;
-		StringBuilder response = new StringBuilder();
+		ArrayList<String> list = new ArrayList<>();
 		
 		try {
 			statement = conn.prepareStatement(getEnrollments);
@@ -71,8 +73,7 @@ public class EnrollDAO {
 			rs = statement.executeQuery();
 			
 			while(rs.next()) {
-				response.append(rs.getString(1));
-				response.append("\n");
+				list.add(rs.getString(1));
 			}
 			
 		} catch (SQLException e) {
@@ -82,7 +83,7 @@ public class EnrollDAO {
 			ConnectionFactory.close(conn);
 		}
 		
-		return response;
+		return list;
 	}
 	
 }

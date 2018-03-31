@@ -1,5 +1,7 @@
 package business;
 
+import java.util.ArrayList;
+
 import dao.EnrollDAO;
 import dao.StudentDAO;
 import dao.SubjectDAO;
@@ -12,17 +14,18 @@ public class EnrollBLL {
 		StudentDAO stud = new StudentDAO();
 		SubjectDAO sub = new SubjectDAO();
 		
-		if (con.checkEnroll(stud.findIdByUsername(data.getUsername()), sub.getIdFromTitle(data.getSubject())) == 0)
+		if (con.checkEnroll(stud.findIdByUsername(data.getUsername().getUsername()), sub.getIdFromTitle(data.getGrade().getSubject())) == 0)
 			return false;
 		else {
-			con.insert(stud.findIdByUsername(data.getUsername()), sub.getIdFromTitle(data.getSubject()));
+			con.insert(stud.findIdByUsername(data.getUsername().getUsername()), sub.getIdFromTitle(data.getGrade().getSubject()));
 			return true;
 		}
 	}
 	
-	public StringBuilder getEnrollments(String username) {
+	public ArrayList<String> getEnrollments(String username) {
 		StudentDAO stud = new StudentDAO();
 		EnrollDAO enr = new EnrollDAO();
+		
 		return enr.getEnrollments(stud.findIdByUsername(username));
 	}
 }

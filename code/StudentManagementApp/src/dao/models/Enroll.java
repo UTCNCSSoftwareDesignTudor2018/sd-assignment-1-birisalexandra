@@ -1,27 +1,27 @@
 package dao.models;
 
 public class Enroll {
-	private String subject;
-	private String username;
+	private Grade grade;
+	private Student username;
 	
-	public Enroll(String subject, String username) {
-		this.subject = subject;
+	public Enroll(Grade grade, Student username) {
+		this.grade = grade;
 		this.username = username;
 	}
 
-	public String getSubject() {
-		return subject;
+	public Grade getGrade() {
+		return this.grade;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
+	public void setGrade(Grade grade) {
+		this.grade = grade;
 	}
 
-	public String getUsername() {
-		return username;
+	public Student getUsername() {
+		return this.username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(Student username) {
 		this.username = username;
 	}
 	

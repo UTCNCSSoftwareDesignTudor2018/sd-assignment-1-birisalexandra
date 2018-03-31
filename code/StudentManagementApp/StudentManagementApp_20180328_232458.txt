@@ -1,0 +1,4 @@
+ERROR - 23:24:59: java.net.MalformedURLException: unknown protocol: pathmap
+ERROR - 23:25:06: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 23:27:12: Convert StudentManagementApp
+ERROR - 23:27:12: java.net.MalformedURLException: unknown protocol: pathmap
